@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری طلای سلطنتی | Royal Gold Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        /* Premium Black & Gold Theme */
+        :root {
+            --gold-premium: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #B8960A;
+            --gold-subtle: rgba(212, 175, 55, 0.1);
+            --black-pure: #000000;
+            --black-matte: #0D0D0D;
+            --black-soft: #1A1A1A;
+            --black-medium: #262626;
+        }
+        
+        body {
+            background: var(--black-pure);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle Gold Particles */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.01) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Premium Glass Effect */
+        .premium-glass {
+            background: rgba(13, 13, 13, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Gold Text Gradient */
+        .gold-text {
+            background: linear-gradient(135deg, 
+                var(--gold-dark) 0%, 
+                var(--gold-premium) 25%, 
+                var(--gold-light) 50%, 
+                var(--gold-premium) 75%, 
+                var(--gold-dark) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShine 4s linear infinite;
+        }
+        
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+        
+        /* Subtle Gold Glow */
+        .gold-glow-subtle {
+            box-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.1),
+                0 0 40px rgba(212, 175, 55, 0.05),
+                inset 0 0 20px rgba(212, 175, 55, 0.02);
+        }
+        
+        /* Premium Button */
+        .btn-premium {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-premium));
+            color: var(--black-pure);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Premium Card */
+        .premium-card {
+            background: var(--black-matte);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-premium), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .premium-card:hover::before {
+            opacity: 1;
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Persian Numbers */
+        .persian-num {
+            font-feature-settings: "ss01";
+        }
+        
+        /* Elegant Divider */
+        .divider-gold {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-premium), transparent);
+            margin: 2rem auto;
+        }
+        
+        /* Navigation Premium */
+        .nav-premium {
+            position: relative;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-premium::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-premium);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-premium:hover {
+            color: var(--gold-premium);
+        }
+        
+        .nav-premium:hover::after {
+            width: 100%;
+        }
+        
+        /* Loading Animation */
+        .loader-premium {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-top: 2px solid var(--gold-premium);
+            border-radius: 50%;
+            animation: spinLoader 1s linear infinite;
+        }
+        
+        @keyframes spinLoader {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Reveal Animation */
+        .reveal-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-fade.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--black-pure);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-premium);
+        }
+        
+        /* Gold Line Animation */
+        .gold-line {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gold-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--gold-premium) 20%, 
+                var(--gold-premium) 80%, 
+                transparent);
+            transform: translateX(-100%);
+            animation: goldLineMove 3s ease-in-out infinite;
+        }
+        
+        @keyframes goldLineMove {
+            to { transform: translateX(100%); }
+        }
+        
+        /* Price Tag */
+        .price-tag {
+            background: linear-gradient(135deg, var(--black-soft), var(--black-matte));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        
+        .price-tag::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, var(--gold-premium), var(--gold-dark));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+        
+        .price-tag:hover::before {
+            opacity: 0.1;
+        }
+
+        /* افکت طلای مذاب */
+.molten-gold {
+  background: linear-gradient(45deg, 
+    #FFD700, #FFA500, #FFD700);
+  background-size: 200% 200%;
+  animation: moltenFlow 4s ease infinite;
+  filter: url('#gooey');
+}
+
+/* افکت کریستال */
+.crystal-refraction {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.1),
+    rgba(255,255,255,0.05));
+  transform: perspective(1000px) rotateX(5deg);
+}
+
+/* نور نئون طلایی */
+.neon-gold-glow {
+  text-shadow: 
+    0 0 10px #FFD700,
+    0 0 20px #FFD700,
+    0 0 30px #FFD700,
+    0 0 40px #FFA500;
+}
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-500">
+        <div class="text-center">
+            <div class="loader-premium mx-auto mb-4"></div>
+            <h2 class="gold-text text-2xl font-light tracking-wider">گالری طلای سلطنتی</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full premium-glass z-40 py-4 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-12 h-12 rounded-full border border-gold-premium/30 flex items-center justify-center gold-glow-subtle">
+                        <i class="fas fa-crown text-xl gold-text"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold gold-text tracking-wider">گالری طلای سلطنتی</h1>
+                        <p class="text-xs text-gray-500 tracking-widest">ROYAL GOLD GALLERY</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <li><a href="#home" class="nav-premium">صفحه اصلی</a></li>
+                    <li><a href="#collections" class="nav-premium">کلکسیون‌ها</a></li>
+                    <li><a href="#exclusive" class="nav-premium">محصولات انحصاری</a></li>
+                    <li><a href="#services" class="nav-premium">خدمات ویژه</a></li>
+                    <li><a href="#investment" class="nav-premium">سرمایه‌گذاری</a></li>
+                    <li><a href="#about" class="nav-premium">درباره ما</a></li>
+                    <li><a href="#contact" class="nav-premium">تماس</a></li>
+                </ul>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button class="btn-premium px-6 py-2 rounded-full text-sm">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        رزرو وقت حضوری
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gold-premium">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-premium/5 to-transparent"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center z-10 reveal-fade">
+            <div class="mb-8">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">تأسیس ۱۳۵۰</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-thin mb-6 leading-tight">
+                <span class="block text-white mb-2">هنر در</span>
+                <span class="block gold-text font-bold">طلا و جواهر</span>
+            </h1>
+            
+            <div class="divider-gold"></div>
+            
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                پنجاه سال تجربه در خلق شاهکارهای هنری از طلا و جواهرات
+                <br>
+                مفتخر به ارائه منحصرترین طرح‌های دست‌ساز برای مشتریان خاص
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="btn-premium px-8 py-4 rounded-full text-base">
+                    <i class="fas fa-gem ml-3"></i>
+                    مشاهده کلکسیون اصلی
+                </button>
+                <button class="px-8 py-4 rounded-full text-base border border-gold-premium/30 text-white hover:bg-gold-premium/10 transition-all">
+                    <i class="fas fa-play ml-3"></i>
+                    تماشای ویدیو معرفی
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gold-premium/50 animate-bounce">
+            <i class="fas fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 premium-glass gold-line">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal-fade">
+                    <div class="text-4xl md:text-5xl font-bold gold-text persian-num mb-2 counter" data-target="50">۰</div>
+                    <p class="text-gray-500 text-sm">سال تجربه</p>
+                </div>
+                <div class="reveal-fade" style="animation-delay: 0.1s">
+                    <div class="text-4xl md:text-5xl font-bold gold-text persian-num mb-2 counter" data-target="10000">۰</div>
+                    <p class="text-gray-500 text-sm">مشتری وفادار</p>
+                </div>
+                <div class="reveal-fade" style="animation-delay: 0.2s">
+                    <div class="text-4xl md:text-5xl font-bold gold-text persian-num mb-2 counter" data-target="5000">۰</div>
+                    <p class="text-gray-500 text-sm">طرح منحصر به فرد</p>
+                </div>
+                <div class="reveal-fade" style="animation-delay: 0.3s">
+                    <div class="text-4xl md:text-5xl font-bold gold-text persian-num mb-2 counter" data-target="100">۰</div>
+                    <p class="text-gray-500 text-sm">جایزه بین‌المللی</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="py-24 reveal-fade">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">مجموعه‌های ما</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    <span class="text-white">کلکسیون‌های</span>
+                    <span class="gold-text">منحصر به فرد</span>
+                </h2>
+                <div class="divider-gold"></div>
+            </div>
+            
+            <!-- Collections Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="premium-card rounded-xl overflow-hidden group">
+                    <div class="aspect-[3/4] bg-gradient-to-b from-black-soft to-black-matte relative overflow-hidden">
+                        <img src="1.png" alt="کلکسیون سلطنتی" 
+                             class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 premium-glass rounded-full text-xs text-gold-premium">
+                                انحصاری
+                            </span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">کلکسیون سلطنتی</h3>
+                            <p class="text-gray-400 text-sm mb-4">طراحی‌های الهام گرفته از جواهرات دوران قاجار</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">۲۵ قطعه</span>
+                                <span class="gold-text font-semibold">از ۵۰۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="premium-card rounded-xl overflow-hidden group">
+                    <div class="aspect-[3/4] bg-gradient-to-b from-black-soft to-black-matte relative overflow-hidden">
+                        <img src="2.png" alt="کلکسیون عروس" 
+                             class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 premium-glass rounded-full text-xs text-gold-premium">
+                                محبوب
+                            </span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">کلکسیون عروس</h3>
+                            <p class="text-gray-400 text-sm mb-4">سرویس‌های کامل طلا و جواهر برای عروس‌خانم‌ها</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">۴۰ قطعه</span>
+                                <span class="gold-text font-semibold">از ۲۰۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="premium-card rounded-xl overflow-hidden group">
+                    <div class="aspect-[3/4] bg-gradient-to-b from-black-soft to-black-matte relative overflow-hidden">
+                        <img src="p3.png" alt="کلکسیون مدرن" 
+                             class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 premium-glass rounded-full text-xs text-gold-premium">
+                                جدید
+                            </span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">کلکسیون مدرن</h3>
+                            <p class="text-gray-400 text-sm mb-4">طراحی‌های مینیمال و معاصر</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">۳۵ قطعه</span>
+                                <span class="gold-text font-semibold">از ۱۵۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Products -->
+    <section id="exclusive" class="py-24 premium-glass reveal-fade">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">انحصاری</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    <span class="gold-text">قطعات</span>
+                    <span class="text-white">یکتا</span>
+                </h2>
+                <div class="divider-gold"></div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="premium-card rounded-lg p-4">
+                    <div class="aspect-square bg-black-soft rounded-lg mb-4 overflow-hidden">
+                        <img src="p4.png" alt="گردنبند الماس" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">گردنبند الماس آبی</h3>
+                    <p class="text-xs text-gray-500 mb-3">کد محصول: RG-۱۰۰۱</p>
+                    <div class="price-tag rounded-lg p-3 text-center">
+                        <span class="text-2xl font-bold gold-text persian-num">۸۵۰,۰۰۰,۰۰۰</span>
+                        <span class="text-xs text-gray-500 block mt-1">تومان</span>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="premium-card rounded-lg p-4">
+                    <div class="aspect-square bg-black-soft rounded-lg mb-4 overflow-hidden">
+                        <img src="p5.png" alt="انگشتر زمرد" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">انگشتر زمرد کلمبیا</h3>
+                    <p class="text-xs text-gray-500 mb-3">کد محصول: RG-۱۰۰۲</p>
+                    <div class="price-tag rounded-lg p-3 text-center">
+                        <span class="text-2xl font-bold gold-text persian-num">۴۵۰,۰۰۰,۰۰۰</span>
+                        <span class="text-xs text-gray-500 block mt-1">تومان</span>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="premium-card rounded-lg p-4">
+                    <div class="aspect-square bg-black-soft rounded-lg mb-4 overflow-hidden">
+                        <img src="p4.png" alt="دستبند طلا" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">دستبند طلای ایتالیایی</h3>
+                    <p class="text-xs text-gray-500 mb-3">کد محصول: RG-۱۰۰۳</p>
+                    <div class="price-tag rounded-lg p-3 text-center">
+                        <span class="text-2xl font-bold gold-text persian-num">۳۲۰,۰۰۰,۰۰۰</span>
+                        <span class="text-xs text-gray-500 block mt-1">تومان</span>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="premium-card rounded-lg p-4">
+                    <div class="aspect-square bg-black-soft rounded-lg mb-4 overflow-hidden">
+                        <img src="2.png" alt="گوشواره الماس" 
+                             class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">گوشواره الماس تراش برلیان</h3>
+                    <p class="text-xs text-gray-500 mb-3">کد محصول: RG-۱۰۰۴</p>
+                    <div class="price-tag rounded-lg p-3 text-center">
+                        <span class="text-2xl font-bold gold-text persian-num">۲۸۰,۰۰۰,۰۰۰</span>
+                        <span class="text-xs text-gray-500 block mt-1">تومان</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-premium px-8 py-3 rounded-full">
+                    مشاهده همه محصولات
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 reveal-fade">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">خدمات ما</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    <span class="text-white">خدمات</span>
+                    <span class="gold-text">ویژه مشتریان</span>
+                </h2>
+                <div class="divider-gold"></div>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-gem text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">طراحی سفارشی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        طراحی انحصاری جواهرات بر اساس سلیقه شخصی شما توسط بهترین طراحان
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-certificate text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">ضمانت اصالت</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        ارائه گواهینامه بین‌المللی برای تمامی جواهرات و سنگ‌های قیمتی
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-truck text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">ارسال امن</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        ارسال محصولات با بیمه کامل و تحویل حضوری در محل شما
+                    </p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tools text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">تعمیرات تخصصی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        تعمیر و بازسازی جواهرات قدیمی با حفظ اصالت و ارزش آنها
+                    </p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-tie text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">مشاوره رایگان</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        مشاوره تخصصی برای خرید و سرمایه‌گذاری در طلا و جواهرات
+                    </p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full premium-glass flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-alt text-2xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">بازخرید تضمینی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        بازخرید محصولات خریداری شده با بهترین قیمت روز
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="py-24 premium-glass reveal-fade">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">سرمایه‌گذاری</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                        <span class="gold-text">سرمایه‌گذاری</span>
+                        <span class="text-white">در طلا</span>
+                    </h2>
+                    <div class="divider-gold mr-auto ml-0"></div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        طلا همیشه به عنوان یک سرمایه‌گذاری امن و پایدار شناخته شده است. ما با ارائه مشاوره تخصصی و محصولات استاندارد، بهترین گزینه برای سرمایه‌گذاری شما هستیم.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-gold-premium"></i>
+                            <span class="text-gray-300">ضمانت بازخرید با بهترین نرخ</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-gold-premium"></i>
+                            <span class="text-gray-300">صدور گواهی اصالت بین‌المللی</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-gold-premium"></i>
+                            <span class="text-gray-300">مشاوره رایگان سرمایه‌گذاری</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-gold-premium"></i>
+                            <span class="text-gray-300">امکان خرید اقساطی بدون بهره</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-premium px-8 py-3 rounded-full">
+                        دریافت مشاوره سرمایه‌گذاری
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="premium-card rounded-lg p-6 text-center">
+                        <i class="fas fa-coins text-3xl gold-text mb-4"></i>
+                        <h4 class="text-lg font-semibold text-white mb-2">سکه طلا</h4>
+                        <p class="text-gray-500 text-sm">انواع سکه بهار آزادی</p>
+                    </div>
+                    <div class="premium-card rounded-lg p-6 text-center">
+                        <i class="fas fa-bars text-3xl gold-text mb-4"></i>
+                        <h4 class="text-lg font-semibold text-white mb-2">شمش طلا</h4>
+                        <p class="text-gray-500 text-sm">شمش‌های استاندارد</p>
+                    </div>
+                    <div class="premium-card rounded-lg p-6 text-center">
+                        <i class="fas fa-ring text-3xl gold-text mb-4"></i>
+                        <h4 class="text-lg font-semibold text-white mb-2">طلای آب شده</h4>
+                        <p class="text-gray-500 text-sm">خرید به گرم</p>
+                    </div>
+                    <div class="premium-card rounded-lg p-6 text-center">
+                        <i class="fas fa-chart-line text-3xl gold-text mb-4"></i>
+                        <h4 class="text-lg font-semibold text-white mb-2">صندوق طلا</h4>
+                        <p class="text-gray-500 text-sm">سرمایه‌گذاری مدرن</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 reveal-fade">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">درباره ما</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    <span class="text-white">پنجاه سال</span>
+                    <span class="gold-text">تجربه درخشان</span>
+                </h2>
+                <div class="divider-gold"></div>
+                
+                <p class="text-gray-400 mb-8 leading-relaxed text-lg">
+                    گالری طلای سلطنتی با بیش از نیم قرن تجربه در صنعت طلا و جواهر، همواره در تلاش بوده تا با ارائه محصولات منحصر به فرد و خدمات بی‌نظیر، اعتماد مشتریان خود را جلب کند.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold gold-text persian-num mb-2">۱۳۵۰</div>
+                        <p class="text-gray-500">سال تأسیس</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold gold-text persian-num mb-2">۵</div>
+                        <p class="text-gray-500">شعبه فعال</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold gold-text persian-num mb-2">۱۰۰+</div>
+                        <p class="text-gray-500">پرسنل متخصص</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 premium-glass reveal-fade">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-[0.5em] text-gray-500 uppercase">ارتباط با ما</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    <span class="gold-text">در خدمت</span>
+                    <span class="text-white">شما هستیم</span>
+                </h2>
+                <div class="divider-gold"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="premium-card rounded-lg p-6 flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full premium-glass flex items-center justify-center">
+                            <i class="fas fa-phone gold-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">تلفن</h3>
+                            <p class="text-gray-400 persian-num">۰۲۱-۸۸۸۸۸۸۸۸</p>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-card rounded-lg p-6 flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full premium-glass flex items-center justify-center">
+                            <i class="fas fa-envelope gold-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">ایمیل</h3>
+                            <p class="text-gray-400">info@royalgold.ir</p>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-card rounded-lg p-6 flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full premium-glass flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt gold-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">آدرس</h3>
+                            <p class="text-gray-400">تهران، خیابان جردن، پلاک ۲۵</p>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-card rounded-lg p-6 flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full premium-glass flex items-center justify-center">
+                            <i class="fas fa-clock gold-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">ساعات کاری</h3>
+                            <p class="text-gray-400 persian-num">شنبه تا پنجشنبه: ۱۰ صبح تا ۹ شب</p>
+                            <p class="text-gray-400 persian-num">جمعه: ۴ عصر تا ۹ شب</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="premium-card rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-white mb-6">فرم تماس</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="نام و نام خانوادگی" 
+                                   class="w-full px-4 py-3 rounded-lg bg-black-soft border border-gray-800 focus:border-gold-premium/50 focus:outline-none text-white placeholder-gray-600 transition">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="شماره تماس" 
+                                   class="w-full px-4 py-3 rounded-lg bg-black-soft border border-gray-800 focus:border-gold-premium/50 focus:outline-none text-white placeholder-gray-600 transition persian-num">
+                        </div>
+                        <div>
+                            <select class="w-full px-4 py-3 rounded-lg bg-black-soft border border-gray-800 focus:border-gold-premium/50 focus:outline-none text-white transition">
+                                <option value="">موضوع پیام</option>
+                                <option value="buy">خرید محصول</option>
+                                <option value="custom">سفارش طراحی</option>
+                                <option value="invest">سرمایه‌گذاری</option>
+                                <option value="repair">تعمیرات</option>
+                                <option value="other">سایر</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="پیام شما" rows="4" 
+                                      class="w-full px-4 py-3 rounded-lg bg-black-soft border border-gray-800 focus:border-gold-premium/50 focus:outline-none text-white placeholder-gray-600 transition resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-premium w-full py-3 rounded-lg">
+                            ارسال پیام
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full border border-gold-premium/30 flex items-center justify-center">
+                            <i class="fas fa-crown text-sm gold-text"></i>
+                        </div>
+                        <h3 class="text-lg font-bold gold-text">گالری طلای سلطنتی</h3>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        ارائه‌دهنده برترین مجموعه طلا و جواهرات با نیم قرن تجربه درخشان
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">دسترسی سریع</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="#collections" class="hover:text-gold-premium transition">کلکسیون‌ها</a></li>
+                        <li><a href="#exclusive" class="hover:text-gold-premium transition">محصولات انحصاری</a></li>
+                        <li><a href="#services" class="hover:text-gold-premium transition">خدمات</a></li>
+                        <li><a href="#investment" class="hover:text-gold-premium transition">سرمایه‌گذاری</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">خدمات ویژه</h4>
+                    <ul class="space-y-2 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-gold-premium transition">طراحی سفارشی</a></li>
+                        <li><a href="#" class="hover:text-gold-premium transition">مشاوره رایگان</a></li>
+                        <li><a href="#" class="hover:text-gold-premium transition">تعمیرات تخصصی</a></li>
+                        <li><a href="#" class="hover:text-gold-premium transition">بازخرید تضمینی</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">شبکه‌های اجتماعی</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full premium-glass flex items-center justify-center hover:bg-gold-premium/10 transition">
+                            <i class="fab fa-instagram text-gold-premium"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full premium-glass flex items-center justify-center hover:bg-gold-premium/10 transition">
+                            <i class="fab fa-telegram text-gold-premium"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full premium-glass flex items-center justify-center hover:bg-gold-premium/10 transition">
+                            <i class="fab fa-whatsapp text-gold-premium"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full premium-glass flex items-center justify-center hover:bg-gold-premium/10 transition">
+                            <i class="fab fa-youtube text-gold-premium"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-8 text-center">
+                <p class="text-gray-600 text-sm">
+                    © 2025 گالری طلای سلطنتی. تمامی حقوق محفوظ است.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Convert English numbers to Persian
+        function toPersianNum(num) {
+            const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            return num.toString().replace(/\d/g, x => persianNumbers[x]);
+        }
+
+        // Loading
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        
+        function animateCounter(counter) {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = toPersianNum(Math.floor(current));
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = toPersianNum(target);
+                }
+            };
+            
+            updateCounter();
+        }
+
+        // Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate counters
+                    const counter = entry.target.querySelector('.counter');
+                    if (counter && counter.textContent === '۰') {
+                        animateCounter(counter);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black');
+            } else {
+                navbar.classList.remove('bg-black');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-black z-50 flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none';
+        mobileMenu.innerHTML = `
+            <button id="close-menu" class="absolute top-6 right-6 text-2xl text-gold-premium">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="text-center space-y-6 text-xl">
+                <li><a href="#home" class="block hover:text-gold-premium transition">صفحه اصلی</a></li>
+                <li><a href="#collections" class="block hover:text-gold-premium transition">کلکسیون‌ها</a></li>
+                <li><a href="#exclusive" class="block hover:text-gold-premium transition">محصولات انحصاری</a></li>
+                <li><a href="#services" class="block hover:text-gold-premium transition">خدمات ویژه</a></li>
+                <li><a href="#investment" class="block hover:text-gold-premium transition">سرمایه‌گذاری</a></li>
+                <li><a href="#about" class="block hover:text-gold-premium transition">درباره ما</a></li>
+                <li><a href="#contact" class="block hover:text-gold-premium transition">تماس</a></li>
+            </ul>
+        `;
+        document.body.appendChild(mobileMenu);
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        };
+
+        mobileMenu.querySelector('#close-menu').addEventListener('click', closeMenu);
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+</body>
+</html>
